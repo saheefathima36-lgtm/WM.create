@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SHAM COCO PROTECTION</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#eef7f2,#e8eee9);color:#18251f}
+.app{display:flex;min-height:100vh}.side{width:230px;background:#063d35;color:white;padding:20px 14px;position:fixed;inset:0 auto 0 0}
+.logo{height:95px;border:2px solid #9fc7a5;border-radius:16px;display:grid;place-items:center;text-align:center;font-weight:800;font-size:18px;margin-bottom:25px}
+.nav button{width:100%;border:0;background:transparent;color:#fff;text-align:left;padding:15px 14px;border-radius:12px;font-size:16px;cursor:pointer;margin:4px 0}.nav button:hover,.nav button.active{background:#087d67}
+.main{margin-left:230px;width:calc(100% - 230px);padding:18px}.top{background:linear-gradient(135deg,#063d35,#087d67);color:#fff;border-radius:18px;padding:20px;text-align:center;font-size:30px;font-weight:800;position:relative;box-shadow:0 8px 25px #063d3530}.date{position:absolute;right:18px;top:23px;font-size:14px;font-weight:normal}
+.page{display:none}.page.active{display:block}.grid{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-top:16px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:16px}
+.card{background:rgba(255,255,255,.96);border:1px solid #ffffffaa;border-radius:18px;box-shadow:0 8px 25px #18372b18;overflow:hidden}.title{padding:13px 16px;color:#fff;font-weight:800;font-size:18px;background:#725020}.green{background:#56774d}.orange{background:#c85b0a}.blue{background:#28599d}.purple{background:#6c3193}.body{padding:14px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.stat{border:1px solid #ddd;border-radius:9px;padding:12px;text-align:center;background:#fafafa}.stat b{display:block;font-size:20px;margin-top:5px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:9px 7px;border:1px solid #ddd;text-align:center}th{background:#f1f4f2}.total{font-weight:800;background:#eef4ee}
+.form{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.form input,.form select{padding:10px;border:1px solid #ccd5d0;border-radius:8px;flex:1;min-width:120px}.btn{padding:10px 15px;border:0;border-radius:8px;background:#087d67;color:#fff;font-weight:bold;cursor:pointer}.danger{background:#c63c3c}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.small{font-size:12px;color:#667}.money{font-weight:800}.hide{display:none}
+@media(max-width:900px){.side{width:75px}.side .logo{font-size:10px}.nav button{font-size:0;text-align:center}.nav button:first-letter{font-size:20px}.main{margin-left:75px;width:calc(100% - 75px)}.grid,.grid3{grid-template-columns:1fr}.stats,.summary{grid-template-columns:repeat(2,1fr)}.date{position:static;margin-top:8px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="logo">🥥<br>SHAM COCO<br>PROTECTION</div>
+  <div class="nav">
+    <button class="active" onclick="showPage('home',this)">🏠 Home</button>
+    <button onclick="showPage('matta',this)">🟤 Matta Sanction</button>
+    <button onclick="showPage('machine',this)">⚙️ Machine Team</button>
+    <button onclick="showPage('dryer',this)">🔥 Dryer Team</button>
+    <button onclick="showPage('salary',this)">💵 Salary</button>
+    <button onclick="showPage('loan',this)">🤲 Lone</button>
+  </div>
+</aside>
+
+<main class="main">
+<header class="top">SHAM COCO PROTECTION <span class="date" id="today"></span></header>
+
+<section id="home" class="page active">
+  <div class="grid3">
+    <div class="card"><div class="title">🟤 MATTA SANCTION</div><div class="body"><div class="stats">
+      <div class="stat">A <b id="homeA">0</b></div><div class="stat">B <b id="homeB">0</b></div><div class="stat">C <b id="homeC">0</b></div><div class="stat">D <b id="homeD">0</b></div>
+    </div><div class="stat" style="margin-top:8px">E <b id="homeE">0</b></div></div></div>
+    <div class="card"><div class="title green">⚙️ MACHINE TEAM</div><div class="body"><div class="stats">
+      <div class="stat">Workers<b id="homeMachine">0</b></div><div class="stat">Daily Salary<b id="homeMachineSalary">Rs. 0</b></div>
+      <div class="stat">Loan<b id="homeMachineLoan">Rs. 0</b></div>
+    </div></div></div>
+    <div class="card"><div class="title orange">🔥 DRYER TEAM</div><div class="body"><div class="stats">
+      <div class="stat">Workers<b id="homeDryer">0</b></div><div class="stat">Today KG<b id="homeKg">0</b></div>
+      <div class="stat">Salary<b id="homeDryerSalary">Rs. 0</b></div>
+    </div></div></div>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="title blue">💵 SALARY SUMMARY</div><div class="body"><div class="summary">
+      <div class="stat">Machine Salary<b id="sumMachine">Rs. 0</b></div>
+      <div class="stat">Dryer Salary<b id="sumDryer">Rs. 0</b></div>
+      <div class="stat">TOTAL TODAY<b id="sumTotal">Rs. 0</b></div>
+    </div></div></div>
+    <div class="card"><div class="title purple">🤲 LONE SUMMARY</div><div class="body"><div class="summary">
+      <div class="stat">Total Given<b id="sumLoan">Rs. 0</b></div>
+      <div class="stat">Balance<b id="sumBalance">Rs. 0</b></div>
+    </div></div></div>
+  </div>
+</section>
+
+<section id="matta" class="page">
+<div class="grid">
+<div class="card"><div class="title">🟤 MATTA SANCTION — A TO E</div><div class="body">
+<div class="form"><input id="supplier" placeholder="Supplier name"><select id="location"><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select><input id="qty" type="number" placeholder="Matta quantity"><button class="btn" onclick="addMatta()">Add</button></div>
+<table><thead><tr><th>Supplier</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>Total</th></tr></thead><tbody id="supplierTable"></tbody></table>
+</div></div>
+<div class="card"><div class="title orange">✂️ CUTTING DETAILS</div><div class="body"><table><thead><tr><th>Location</th><th>Total Matta</th><th>Cut Matta</th><th>Remaining</th></tr></thead><tbody id="mattaSummary"></tbody></table>
+<div class="form" style="margin-top:12px"><select id="cutLoc"><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select><input id="cutQty" type="number" placeholder="Cut quantity"><button class="btn" onclick="addCut()">Add Cut</button></div></div></div>
+</div></section>
+
+<section id="machine" class="page">
+<div class="card"><div class="title green">⚙️ MACHINE TEAM</div><div class="body">
+<div class="form"><input id="mName" placeholder="Worker name"><input id="mSalary" type="number" placeholder="Daily salary"><button class="btn" onclick="addMachine()">Add Worker</button></div>
+<table><thead><tr><th>#</th><th>Name</th><th>Daily Salary</th><th>Loan Taken</th><th>Loan Date</th><th>Loan Cash</th><th>Balance Loan</th></tr></thead><tbody id="machineTable"></tbody></table>
+</div></div></section>
+
+<section id="dryer" class="page">
+<div class="grid">
+<div class="card"><div class="title orange">🔥 DRYER TEAM — PREMIUM SALARY SYSTEM</div><div class="body">
+<div class="summary">
+  <div class="stat">Today's Total KG<b id="dryerTotalKg">0 KG</b></div>
+  <div class="stat">Rate per KG<b>Rs. 8</b></div>
+  <div class="stat">Total Salary<b id="dryerTotalSalary">Rs. 0</b></div>
+  <div class="stat">Salary / Worker<b id="dryerPerWorker">Rs. 0</b></div>
+</div>
+<div class="form">
+<input id="dKgTotal" type="number" min="0" placeholder="Today's Total KG">
+<button class="btn" onclick="saveDryerKg()">Save KG</button>
+<input id="dName" placeholder="Worker name">
+<button class="btn" onclick="addDryer()">Add Worker</button>
+</div>
+<p class="small">Example: 2,000 KG × Rs. 8 = Rs. 16,000. If 4 workers are present, Rs. 16,000 ÷ 4 = <b>Rs. 4,000 each</b>.</p>
+<table><thead><tr><th>#</th><th>Worker Name</th><th>Workers</th><th>Share of Total Salary</th><th>Salary</th></tr></thead><tbody id="dryerTable"></tbody></table>
+</div></div>
+<div class="card"><div class="title purple">🤲 DRYER LOAN</div><div class="body">
+<p>Dryer workers are also included in the central loan system.</p>
+<button class="btn" onclick="showPage('loan',document.querySelectorAll('.nav button')[5])">Open Lone</button>
+</div></div>
+</div></section>
+
+<section id="salary" class="page">
+<div class="card"><div class="title blue">💵 SALARY LIST — AUTOMATIC</div><div class="body">
+<table><thead><tr><th>Team</th><th>Workers</th><th>Total Salary Today</th></tr></thead><tbody id="salaryTable"></tbody></table>
+</div></div></section>
+
+<section id="loan" class="page">
+<div class="card"><div class="title purple">🤲 LONE — CENTRAL RECORD</div><div class="body">
+<div class="form"><select id="loanWorker"></select><input id="loanAmount" type="number" placeholder="Loan cash"><input id="loanDate" type="date"><button class="btn" onclick="addLoan()">Add Loan</button></div>
+<table><thead><tr><th>Name</th><th>Team</th><th>Loan Given</th><th>Date</th><th>Balance Loan</th></tr></thead><tbody id="loanTable"></tbody></table>
+</div></div></section>
+</main>
+</div>
+
+<script>
+const state={matta:{A:0,B:0,C:0,D:0,E:0},cut:{A:0,B:0,C:0,D:0,E:0},suppliers:{},machine:[],dryer:[],loans:[],dryerDailyKg:0};
+
+document.getElementById("today").textContent=new Date().toLocaleDateString("en-GB");
+
+function showPage(id,btn){
+ document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
+ if(btn)btn.classList.add("active"); render();
+}
+function addMatta(){
+ let n=document.getElementById("supplier").value.trim(),l=document.getElementById("location").value,q=+document.getElementById("qty").value;
+ if(!n||q<=0)return alert("Supplier name and quantity enter pannunga.");
+ if(!state.suppliers[n])state.suppliers[n]={A:0,B:0,C:0,D:0,E:0};
+ state.suppliers[n][l]+=q;state.matta[l]+=q;
+ document.getElementById("supplier").value="";document.getElementById("qty").value="";render();
+}
+function addCut(){
+ let l=document.getElementById("cutLoc").value,q=+document.getElementById("cutQty").value;
+ if(q<=0||q>state.matta[l]-state.cut[l])return alert("Valid cut quantity enter pannunga.");
+ state.cut[l]+=q;document.getElementById("cutQty").value="";render();
+}
+function addMachine(){
+ let n=document.getElementById("mName").value.trim(),s=+document.getElementById("mSalary").value;
+ if(!n||s<0)return alert("Name and salary enter pannunga.");
+ state.machine.push({name:n,salary:s,loan:0});document.getElementById("mName").value="";document.getElementById("mSalary").value="";render();
+}
+function saveDryerKg(){
+ let kg=+document.getElementById("dKgTotal").value;
+ if(kg<0)return alert("Valid KG enter pannunga.");
+ state.dryerDailyKg=kg;
+ document.getElementById("dKgTotal").value="";
+ render();
+}
+function addDryer(){
+ let n=document.getElementById("dName").value.trim();
+ if(!n)return alert("Worker name enter pannunga.");
+ state.dryer.push({name:n,kg:0,salary:0,loan:0});
+ document.getElementById("dName").value="";
+ render();
+}
+function addLoan(){
+ let name=document.getElementById("loanWorker").value,amount=+document.getElementById("loanAmount").value,date=document.getElementById("loanDate").value;
+ if(!name||amount<=0)return alert("Worker and loan amount enter pannunga.");
+ let person=[...state.machine,...state.dryer].find(x=>x.name===name);
+ if(!person)return; person.loan=(person.loan||0)+amount;
+ state.loans.push({name,team:state.machine.includes(person)?"Machine":"Dryer",amount,date,balance:person.loan});
+ document.getElementById("loanAmount").value="";render();
+}
+const rs=n=>"Rs. "+Number(n).toLocaleString("en-LK");
+function render(){
+ let locations=["A","B","C","D","E"];
+ document.getElementById("supplierTable").innerHTML=Object.entries(state.suppliers).map(([n,v])=>`<tr><td>${n}</td>${locations.map(x=>`<td>${v[x]}</td>`).join("")}<td><b>${locations.reduce((a,x)=>a+v[x],0)}</b></td></tr>`).join("")+
+ `<tr class="total"><td>TOTAL</td>${locations.map(x=>`<td>${state.matta[x]}</td>`).join("")}<td>${locations.reduce((a,x)=>a+state.matta[x],0)}</td></tr>`;
+ document.getElementById("mattaSummary").innerHTML=locations.map(x=>`<tr><td>${x}</td><td>${state.matta[x]}</td><td>${state.cut[x]}</td><td>${state.matta[x]-state.cut[x]}</td></tr>`).join("")+
+ `<tr class="total"><td>TOTAL</td><td>${locations.reduce((a,x)=>a+state.matta[x],0)}</td><td>${locations.reduce((a,x)=>a+state.cut[x],0)}</td><td>${locations.reduce((a,x)=>a+state.matta[x]-state.cut[x],0)}</td></tr>`;
+ document.getElementById("machineTable").innerHTML=state.machine.map((x,i)=>`<tr><td>${i+1}</td><td>${x.name}</td><td>${rs(x.salary)}</td><td>${x.loan?rs(x.loan):"—"}</td><td>${x.loan?"See Lone":"—"}</td><td>${x.loan?rs(x.loan):"—"}</td><td>${x.loan?rs(x.loan):"—"}</td></tr>`).join("");
+ // Dryer salary: total KG × Rs.8, then divide equally among all present workers.
+ let totalDryerKg=state.dryerDailyKg;
+ let ds=totalDryerKg*8;
+ let dryerPerWorker=state.dryer.length ? ds/state.dryer.length : 0;
+ state.dryer.forEach(x=>x.salary=dryerPerWorker);
+ document.getElementById("dryerTotalKg").textContent=totalDryerKg.toLocaleString("en-LK")+" KG";
+ document.getElementById("dryerTotalSalary").textContent=rs(ds);
+ document.getElementById("dryerPerWorker").textContent=rs(dryerPerWorker);
+ document.getElementById("dryerTable").innerHTML=state.dryer.map((x,i)=>`<tr><td>${i+1}</td><td>${x.name}</td><td>${state.dryer.length}</td><td>${totalDryerKg.toLocaleString("en-LK")} KG × Rs.8 ÷ ${state.dryer.length}</td><td><b>${rs(x.salary)}</b></td></tr>`).join("")+
+ `<tr class="total"><td colspan="4">TOTAL DRYER SALARY</td><td>${rs(ds)}</td></tr>`;
+ let ms=state.machine.reduce((a,x)=>a+x.salary,0),loan=state.loans.reduce((a,x)=>a+x.amount,0);
+ document.getElementById("salaryTable").innerHTML=`<tr><td>Machine Team</td><td>${state.machine.length}</td><td>${rs(ms)}</td></tr><tr><td>Dryer Team</td><td>${state.dryer.length}</td><td>${rs(ds)}</td></tr><tr class="total"><td>TOTAL</td><td>${state.machine.length+state.dryer.length}</td><td>${rs(ms+ds)}</td></tr>`;
+ document.getElementById("loanTable").innerHTML=state.loans.map(x=>`<tr><td>${x.name}</td><td>${x.team}</td><td>${rs(x.amount)}</td><td>${x.date||"—"}</td><td>${rs(x.balance)}</td></tr>`).join("");
+ document.getElementById("loanWorker").innerHTML=[...state.machine.map(x=>`<option>${x.name}</option>`),...state.dryer.map(x=>`<option>${x.name}</option>`)].join("");
+ locations.forEach(x=>document.getElementById("home"+x).textContent=state.matta[x]);
+ document.getElementById("homeMachine").textContent=state.machine.length;document.getElementById("homeMachineSalary").textContent=rs(ms);
+ document.getElementById("homeMachineLoan").textContent=rs(state.machine.reduce((a,x)=>a+x.loan,0));
+ document.getElementById("homeDryer").textContent=state.dryer.length;document.getElementById("homeKg").textContent=state.dryerDailyKg;document.getElementById("homeDryerSalary").textContent=rs(ds);
+ document.getElementById("sumMachine").textContent=rs(ms);document.getElementById("sumDryer").textContent=rs(ds);document.getElementById("sumTotal").textContent=rs(ms+ds);
+ document.getElementById("sumLoan").textContent=rs(loan);document.getElementById("sumBalance").textContent=rs(loan);
+}
+render();
+</script>
+</body>
+</html>
